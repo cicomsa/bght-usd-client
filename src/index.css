@@ -1,0 +1,28 @@
+body {
+  padding: 0;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
+.remark {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.overviewRemark {
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin-bottom: -7px;
+}
+
+.studentProfile {
+  margin-bottom: 17px;
+  margin-top: 15px;
+}
