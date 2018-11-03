@@ -28,7 +28,7 @@ class BudgetsPage extends PureComponent {
         </Link>
         <hr />
         <BudgetForm onSubmit={this.addBudget.bind(this)} />
-        <hr class="hr" />
+        <hr className="hr" />
         <BudgetTable />
       </div>
     );

@@ -21,8 +21,6 @@ class BudgetsTable extends PureComponent {
 
     if (!budgets) return null;
 
-    console.log(budgets);
-
     return (
       <div>
         <h3>Totals</h3>
