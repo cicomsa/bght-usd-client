@@ -26,3 +26,12 @@ h1 {
   margin-bottom: 17px;
   margin-top: 15px;
 }
+
+#budget-cell {
+  padding: 4px 24px;
+  max-width: 50px;
+}
+
+.hr {
+  margin-bottom: 20px;
+}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { login } from '../../actions/users';
 import { addBudget } from '../../actions/budget';
 import BudgetForm from './BudgetForm';
+import BudgetTable from './BudgetTable';
 
 class BudgetsPage extends PureComponent {
   addBudget = budget => {
@@ -27,7 +28,8 @@ class BudgetsPage extends PureComponent {
         </Link>
         <hr />
         <BudgetForm onSubmit={this.addBudget.bind(this)} />
-        <hr />
+        <hr class="hr" />
+        <BudgetTable />
       </div>
     );
   }
