@@ -12,9 +12,9 @@ const BottomNav = props => {
       style={{
         zIndex: 10,
         backgroundColor: 'rgba(0, 170, 180)',
-        position: 'fixed',
-        top: '93.9vh'
+        position: 'fixed'
       }}
+      id="footer"
     >
       <Toolbar style={{ justifyContent: 'center', minHeight: 40 }}>
         {location.pathname.indexOf('products/') > 0 && (

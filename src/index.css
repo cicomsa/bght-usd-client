@@ -35,3 +35,7 @@ h1 {
 .hr {
   margin-bottom: 20px;
 }
+
+#footer {
+  top: 93%;
+}

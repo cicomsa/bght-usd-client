@@ -10,6 +10,7 @@ class MealForm extends PureComponent {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
+    this.setState({ name: '' });
   };
 
   handleChange = event => {

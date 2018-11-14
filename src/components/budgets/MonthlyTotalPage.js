@@ -10,7 +10,9 @@ import {
   monthlyMealsBought,
   monthlyMealsUsed,
   monthlyCategoriesBought,
-  monthlyCategoriesUsed
+  monthlyCategoriesUsed,
+  monthlyFixed,
+  monthlyRandom
 } from '../logic/monthlyBudgets';
 import { withStyles } from 'material-ui/styles';
 
@@ -48,6 +50,8 @@ class MonthlyTotalPage extends PureComponent {
           Used Categories: {monthlyCategoriesUsed(products, currentPCMonth)}{' '}
         </p>
         <hr />
+        <p>Fixed: {monthlyFixed(products, currentPCMonth)}</p>
+        <p>Random: {monthlyRandom(products, currentPCMonth)} </p>
       </div>
     );
   }

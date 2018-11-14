@@ -66,16 +66,6 @@ class ProductInfoForm extends PureComponent {
           onChange={this.handleChange}
         />
         <TextField
-          id="left"
-          name="left"
-          label="Left"
-          type="int"
-          margin="normal"
-          className={classes.container}
-          value={this.state.left || ''}
-          onChange={this.handleChange}
-        />
-        <TextField
           id="bought"
           name="bought"
           label="Bought"

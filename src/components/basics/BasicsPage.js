@@ -10,7 +10,7 @@ import {
   fetchProduct,
   getAllProducts
 } from '../../actions/products';
-import BasicsForm from './BasicsForm';
+import ProductForm from '../products/ProductForm';
 import { basicsTable } from './BasicsTable';
 import { removeUsg } from '../logic/removeUsage';
 import { usgLeft } from '../logic/usageLeft';
@@ -73,7 +73,7 @@ class BasicsPage extends PureComponent {
           this.removeUsage.bind(this)
         )}
         <hr />
-        <BasicsForm onSubmit={this.addBasic} />
+        <ProductForm onSubmit={this.addBasic} />
       </div>
     );
   }

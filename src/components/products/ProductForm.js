@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 
 class ProductForm extends PureComponent {
-  state = { bought: new Date().toJSON().slice(0, 10), value: '' };
+  state = { bought: new Date().toJSON().slice(0, 10) };
 
   handleSubmit = e => {
     e.preventDefault();

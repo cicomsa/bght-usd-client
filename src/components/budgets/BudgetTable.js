@@ -102,6 +102,30 @@ class BudgetsTable extends PureComponent {
             </TableBody>
           </Table>
         </Paper>
+
+        <h3>Totals FR</h3>
+        <Paper className={classes.root}>
+          <Table className={classes.table}>
+            <TableHead>
+              <TableRow>
+                <TableCell id="budget-cell">Month</TableCell>
+                <TableCell id="budget-cell"> Fixed</TableCell>
+                <TableCell id="budget-cell">Random</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {budgets.map(budget => {
+                return (
+                  <TableRow key={budget.id} hover align="left">
+                    <TableCell id="budget-cell">{budget.month}</TableCell>
+                    <TableCell id="budget-cell">{budget.fixed}</TableCell>
+                    <TableCell id="budget-cell">{budget.random}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Paper>
       </div>
     );
   }

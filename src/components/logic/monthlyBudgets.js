@@ -32,7 +32,9 @@ export const monthlyCategoriesBought = (products, currentPCMonth) => {
   const currentMonthBoughtCategoriesProducts = products.filter(
     product =>
       new Date(product.bought).getMonth() === currentPCMonth &&
-      product.category !== null
+      product.category !== null &&
+      product.category !== 'Random' &&
+      product.category !== 'Fixed'
   );
   const currentMonthBoughtCategoriesProductsPrice = currentMonthBoughtCategoriesProducts.map(
     product => Number(product.price)
@@ -93,4 +95,30 @@ export const monthlyMealsUsed = (products, currentPCMonth) => {
     0
   );
   return monthlyMealsUsed.toFixed(2);
+};
+
+//monthlyFixed
+export const monthlyFixed = (products, currentPCMonth) => {
+  const currentMonthFixedProducts = products.filter(
+    product => product.category === 'Fixed'
+  );
+  const currentFixedPrice = currentMonthFixedProducts.map(product =>
+    Number(product.price)
+  );
+  const monthlyFixed = currentFixedPrice.reduce((a, b) => a + b, 0);
+  return monthlyFixed.toFixed(2);
+};
+
+//monthlyRandom
+export const monthlyRandom = (products, currentPCMonth) => {
+  const currentMonthRandomProducts = products.filter(
+    product =>
+      new Date(product.bought).getMonth() === currentPCMonth &&
+      product.category === 'Random'
+  );
+  const currentRandomPrice = currentMonthRandomProducts.map(product =>
+    Number(product.price)
+  );
+  const monthlyRandom = currentRandomPrice.reduce((a, b) => a + b, 0);
+  return monthlyRandom.toFixed(2);
 };

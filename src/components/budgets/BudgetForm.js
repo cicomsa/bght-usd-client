@@ -8,7 +8,9 @@ import {
   monthlyMealsUsed,
   monthlyCategoriesBought,
   monthlyCategoriesUsed,
-  currentPCMonth
+  currentPCMonth,
+  monthlyRandom,
+  monthlyFixed
 } from '../logic/monthlyBudgets';
 import { withStyles } from 'material-ui/styles';
 import { formStyle } from '../styles';
@@ -16,7 +18,7 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 
 class BudgetForm extends PureComponent {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAllProducts();
   }
 
@@ -33,7 +35,9 @@ class BudgetForm extends PureComponent {
     totalUsedCategories: monthlyCategoriesUsed(
       this.props.products,
       currentPCMonth
-    )
+    ),
+    random: monthlyRandom(this.props.products, currentPCMonth),
+    fixed: monthlyFixed(this.props.products, currentPCMonth)
   };
 
   myRef = React.createRef();
@@ -56,7 +60,7 @@ class BudgetForm extends PureComponent {
   };
 
   render() {
-    const { classes, products } = this.props;
+    const { classes } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -68,7 +72,7 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={this.state.month || currentPCMonth + 1}
+          value={this.state.month}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
@@ -79,9 +83,7 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={
-            this.state.totalBought || monthlyBought(products, currentPCMonth)
-          }
+          value={this.state.totalBought}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
@@ -92,7 +94,7 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={this.state.totalUsed || monthlyUsed(products, currentPCMonth)}
+          value={this.state.totalUsed}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
@@ -103,10 +105,7 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={
-            this.state.totalBoughtMeals ||
-            monthlyMealsBought(products, currentPCMonth)
-          }
+          value={this.state.totalBoughtMeals}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
@@ -117,10 +116,7 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={
-            this.state.totalUsedMeals ||
-            monthlyMealsUsed(products, currentPCMonth)
-          }
+          value={this.state.totalUsedMeals}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
@@ -131,10 +127,7 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={
-            this.state.totalBoughtCategories ||
-            monthlyCategoriesBought(products, currentPCMonth)
-          }
+          value={this.state.totalBoughtCategories}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
@@ -145,10 +138,29 @@ class BudgetForm extends PureComponent {
           type="text"
           margin="normal"
           className={classes.container}
-          value={
-            this.state.totalUsedCategories ||
-            monthlyCategoriesUsed(products, currentPCMonth)
-          }
+          value={this.state.totalUsedCategories}
+          onChange={this.handleChange}
+          InputLabelProps={{ shrink: true }}
+        />
+        <TextField
+          id="fixed"
+          name="fixed"
+          label="Fixed"
+          type="text"
+          margin="normal"
+          className={classes.container}
+          value={this.state.fixed}
+          onChange={this.handleChange}
+          InputLabelProps={{ shrink: true }}
+        />
+        <TextField
+          id="random"
+          name="random"
+          label="Random"
+          type="text"
+          margin="normal"
+          className={classes.container}
+          value={this.state.random}
           onChange={this.handleChange}
           InputLabelProps={{ shrink: true }}
         />
