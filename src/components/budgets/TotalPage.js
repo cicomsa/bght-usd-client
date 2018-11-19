@@ -10,7 +10,9 @@ import {
   totalBoughtMeals,
   totalUsedMeals,
   totalBoughtCategories,
-  totalUsedCategories
+  totalUsedCategories,
+  totalRandom,
+  totalFixed
 } from '../logic/budgetsTotals';
 import { withStyles } from 'material-ui/styles';
 
@@ -42,6 +44,8 @@ class TotalPage extends PureComponent {
         <p>Bought Categories: {totalBoughtCategories(products)}</p>
         <p>Used Categories: {totalUsedCategories(products)} </p>
         <hr />
+        <p>Fixed: {totalFixed}</p>
+        <p>Random: {totalRandom} </p>
       </div>
     );
   }

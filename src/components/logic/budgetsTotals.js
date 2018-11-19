@@ -34,11 +34,16 @@ export const totalBoughtCategories = products =>
     .reduce((a, b) => Number(a) + Number(b), 0)
     .toFixed(2);
 
-export const totalUsedCategories = products =>
+export const totalRandom = products =>
   products
-    .filter(
-      products => products.finished !== null && products.category !== null
-    )
+    .filter(products => products.category === 'Random')
+    .map(products => products.price)
+    .reduce((a, b) => Number(a) + Number(b), 0)
+    .toFixed(2);
+
+export const totalFixed = products =>
+  products
+    .filter(products => products.category === 'Fixed')
     .map(products => products.price)
     .reduce((a, b) => Number(a) + Number(b), 0)
     .toFixed(2);
