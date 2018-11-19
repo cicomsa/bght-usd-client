@@ -34,6 +34,15 @@ export const totalBoughtCategories = products =>
     .reduce((a, b) => Number(a) + Number(b), 0)
     .toFixed(2);
 
+export const totalUsedCategories = products =>
+  products
+    .filter(
+      products => products.finished !== null && products.category !== null
+    )
+    .map(products => products.price)
+    .reduce((a, b) => Number(a) + Number(b), 0)
+    .toFixed(2);
+
 export const totalRandom = products =>
   products
     .filter(products => products.category === 'Random')
