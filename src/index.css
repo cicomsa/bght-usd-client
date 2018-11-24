@@ -37,5 +37,12 @@ h1 {
 }
 
 #footer {
-  top: 93%;
+  justify-content: 'center';
+  min-height: 40;
+  background-color: 'rgba(0, 170, 180)';
+  color: 'white';
+  position: 'fixed';
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
