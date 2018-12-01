@@ -27,7 +27,7 @@ class TotalPage extends PureComponent {
     const { authenticated, products } = this.props;
     if (!authenticated) return <Redirect to="/login" />;
     if (!products) return null;
-    console.log(totalRandom(products));
+
     return (
       <div>
         <Link style={{ textDecoration: 'none' }} to="/categories">

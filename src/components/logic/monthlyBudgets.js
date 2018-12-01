@@ -3,7 +3,9 @@ export const currentPCMonth = new Date().getMonth();
 //monthlyBought
 export const monthlyBought = (products, currentPCMonth) => {
   const currentMonthBoughtProducts = products.filter(
-    product => new Date(product.bought).getMonth() === currentPCMonth
+    product =>
+      product.category === 'Fixed' ||
+      new Date(product.bought).getMonth() === currentPCMonth
   );
   const currentMonthBoughtProductsPrice = currentMonthBoughtProducts.map(
     product => Number(product.price)
