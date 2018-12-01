@@ -27,7 +27,7 @@ class TotalPage extends PureComponent {
     const { authenticated, products } = this.props;
     if (!authenticated) return <Redirect to="/login" />;
     if (!products) return null;
-
+    console.log(totalRandom(products));
     return (
       <div>
         <Link style={{ textDecoration: 'none' }} to="/categories">
@@ -44,8 +44,8 @@ class TotalPage extends PureComponent {
         <p>Bought Categories: {totalBoughtCategories(products)}</p>
         <p>Used Categories: {totalUsedCategories(products)} </p>
         <hr />
-        <p>Fixed: {totalFixed}</p>
-        <p>Random: {totalRandom} </p>
+        <p>Fixed: {totalFixed(products)}</p>
+        <p>Random: {totalRandom(products)} </p>
       </div>
     );
   }
